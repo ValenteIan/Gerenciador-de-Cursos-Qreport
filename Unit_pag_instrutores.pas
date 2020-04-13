@@ -24,7 +24,6 @@ type
     adoquery_demonstrativoCOD_TURMA: TStringField;
     adoquery_demonstrativoDATA: TDateTimeField;
     adoquery_demonstrativoVALOR_AULA: TBCDField;
-    btn_gerar2: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure btn_instrutorClick(Sender: TObject);
     procedure cb_mes_anoEnter(Sender: TObject);

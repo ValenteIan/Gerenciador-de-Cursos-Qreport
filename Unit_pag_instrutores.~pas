@@ -132,13 +132,10 @@ begin
           ' AND AULAS.PAGA =' + QuotedStr('N') +
           ' ORDER BY TURMAS.COD_TURMA, AULAS.DATA ';
 
-    adoquery_demonstrativo.SQL.Text := sql;
-    adoquery_demonstrativo.Open;
-
-    rel_demonstrativo.ProjectFile := GetCurrentDir + '\demonstrativo.rav';
-    rel_demonstrativo.Execute;
-
-    adoquery_demonstrativo.Close;
+    FormDMPrincipal.datasetRelatorios.CommandText := sql;
+    FormDMPrincipal.cdsRelatorios.Open;
+    Form_Demo_Aulas.QuickRep1.Preview;
+    FormDMPrincipal.cdsRelatorios.Close;
 
     //Pergunta se deseja quitar as aulas do demonstrativo
     if Application.MessageBox('Deseja quitar estas aulas ?',

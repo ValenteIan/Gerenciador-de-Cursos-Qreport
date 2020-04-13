@@ -51,7 +51,7 @@ object Form_pag_instrutores: TForm_pag_instrutores
     OnEnter = cb_mes_anoEnter
   end
   object btn_gerar: TBitBtn
-    Left = 112
+    Left = 32
     Top = 96
     Width = 115
     Height = 25
@@ -60,7 +60,7 @@ object Form_pag_instrutores: TForm_pag_instrutores
     OnClick = btn_gerarClick
   end
   object btn_cancelar: TBitBtn
-    Left = 256
+    Left = 192
     Top = 96
     Width = 75
     Height = 25
@@ -76,15 +76,6 @@ object Form_pag_instrutores: TForm_pag_instrutores
     Caption = '+'
     TabOrder = 4
     OnClick = btn_instrutorClick
-  end
-  object btn_gerar2: TBitBtn
-    Left = 16
-    Top = 96
-    Width = 75
-    Height = 25
-    Caption = 'Gerar'
-    TabOrder = 5
-    OnClick = btn_gerar2Click
   end
   object adoquery_demonstrativo: TADOQuery
     Connection = Form_logon.ConexaoBD

@@ -48,6 +48,7 @@ end;
 
 procedure TForm_lanca_presenca.btn_turmaClick(Sender: TObject);
 begin
+  
   edt_turma.Clear;
   Form_pesquisa_turmas.ShowModal;
 
@@ -98,7 +99,7 @@ begin
                               'FROM MATRICULAS INNER JOIN ALUNOS '+
                               'ON MATRICULAS.COD_ALUNO = ALUNOS.COD_ALUNO ' +
                               'WHERE COD_TURMA = '+QuotedStr(edt_turma.Text)+
-                              'ORDEY BY ALUNOS.NOME';
+                              'ORDER BY ALUNOS.NOME';
     adoquery_aux.Open;
     if adoquery_aux.IsEmpty then
       ShowMessage('Não existem alunos matriculados nesta turma!')

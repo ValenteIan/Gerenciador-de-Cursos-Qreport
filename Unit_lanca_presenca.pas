@@ -48,6 +48,7 @@ end;
 
 procedure TForm_lanca_presenca.btn_turmaClick(Sender: TObject);
 begin
+  ck_lista_alunos.Clear;
   edt_turma.Clear;
   Form_pesquisa_turmas.ShowModal;
 
