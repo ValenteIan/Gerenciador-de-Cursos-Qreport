@@ -1,0 +1,47 @@
+object FormDMPrincipal: TFormDMPrincipal
+  OldCreateOrder = False
+  Left = 192
+  Top = 157
+  Height = 282
+  Width = 342
+  object ConRelatorios: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=valente123;Persist Security Info=Tr' +
+      'ue;User ID=admin_academico;Initial Catalog=Academico;Data Source' +
+      '=DESKTOP-HR2SECH\SQLEXPRESS'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 24
+    Top = 80
+  end
+  object datasetRelatorios: TADODataSet
+    Connection = ConRelatorios
+    CursorType = ctStatic
+    CommandText = 
+      '  SELECT INSTRUTORES.COD_INSTRUTOR, '#13#10'                   INSTRUT' +
+      'ORES.NOME, '#13#10'                   TURMAS.COD_TURMA, '#13#10'            ' +
+      '       COUNT(AULAS.DATA) AS AULAS '#13#10'             FROM INSTRUTORE' +
+      'S '#13#10'             INNER JOIN TURMAS '#13#10'               ON INSTRUTOR' +
+      'ES.COD_INSTRUTOR = TURMAS.COD_INSTRUTOR '#13#10'            INNER JOIN' +
+      ' AULAS'#13#10'               ON TURMAS.COD_TURMA = AULAS.COD_TURMA'#13#10'  ' +
+      '           GROUP BY INSTRUTORES.COD_INSTRUTOR, '#13#10'             IN' +
+      'STRUTORES.NOME, TURMAS.COD_TURMA '#13#10'             ORDER BY TURMAS.' +
+      'COD_TURMA'
+    Parameters = <>
+    Left = 128
+    Top = 80
+  end
+  object dspRelatorios: TDataSetProvider
+    DataSet = datasetRelatorios
+    Left = 200
+    Top = 80
+  end
+  object cdsRelatorios: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspRelatorios'
+    Left = 264
+    Top = 80
+  end
+end
